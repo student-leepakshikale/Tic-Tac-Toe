@@ -18,6 +18,15 @@ const winPatterns= [
 ];
 
 const resetGame = () =>{
+    var audio=new Audio('Sounds_click.wav');
+    audio.play();
+    turnO = true;
+    enableBoxes();
+    msgContainer.classList.add("hide");
+}
+const newGame = () =>{
+    var audio=new Audio('Sounds_new.wav');
+    audio.play();
     turnO = true;
     enableBoxes();
     msgContainer.classList.add("hide");
@@ -54,6 +63,8 @@ const enableBoxes = () => {
 }
 
 const showWinner = (winner) =>{
+    var audio=new Audio('Sounds_win.wav');
+    audio.play();
    msg.innerText = `Congratulations, Winner is ${winner}`;
    msgContainer.classList.remove("hide");
    disableBoxes();
@@ -81,5 +92,5 @@ const checkWinner = () => {
     }
 };
 
-newGameBtn.addEventListener("click", resetGame);
+newGameBtn.addEventListener("click", newGame);
 resetBtn.addEventListener("click", resetGame);
